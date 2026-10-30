@@ -22,5 +22,11 @@ services:
     ports:
       - "8080:8080"
 
+  adminer:
+    image: adminer:6.1.2
+    ports:
+      - "8090:8080"
+    depends_on: [db]
+
 volumes:
   datos:
