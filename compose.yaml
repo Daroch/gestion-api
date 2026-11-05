@@ -19,14 +19,23 @@ services:
       DB_URL: jdbc:mysql://db:3306/gestion
       DB_USER: gestion_app
       DB_PASSWORD: ${APP_DB_PASSWORD}
-    ports:
-      - "8080:8080"
 
   adminer:
     image: adminer:6.1.2
     ports:
       - "8090:8080"
     depends_on: [db]
+
+  proxy:
+    image: nginx:1.28-alpine
+    restart: unless-stopped
+    depends_on: [api]
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/html:/usr/share/nginx/html:ro
+
 
 volumes:
   datos:
