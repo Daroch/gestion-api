@@ -1,4 +1,4 @@
-# Gestion - prueba B
+# Gestion - Version A y B
 
 Proyecto gestion GOT basado en SpringBoot
 
