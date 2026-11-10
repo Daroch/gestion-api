@@ -18,5 +18,5 @@ public interface GranCasaRepository extends JpaRepository<GranCasa, Integer> {
 
     public List<GranCasaResumen> findAllBy();
 
-    public Optional<GranCasaResumen> findByNombreIgnoreCase(String nombre);
+    public Optional<GranCasaResumen> findFirstByNombreContainingIgnoreCase(String nombre);
 }

@@ -23,6 +23,6 @@ public class GranCasaService {
     }
 
     public Optional<GranCasaRepository.GranCasaResumen> buscarPorNombre(String nombre){
-        return granCasaRepository.findByNombreIgnoreCase(nombre);
+        return granCasaRepository.findFirstByNombreContainingIgnoreCase(nombre);
     }
 }
